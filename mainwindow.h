@@ -18,15 +18,17 @@ public:
 
 private slots:
 
-
+    void showSelf();
     void on_pushButton_exit_clicked();
 
     void on_pushButton_login_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     void validateLogin_Student();
-
+    void validateLogin_Teacher();
     QSqlDatabase db;
 };
 #endif // MAINWINDOW_H

@@ -25,6 +25,11 @@ private slots:
 
     void on_checkButton_clicked();
 
+    void on_courseButton_clicked();
+
+signals:
+    void notifyParent();
+
 private:
     Ui::Student *ui;
     Stud* s;

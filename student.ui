@@ -209,7 +209,7 @@
           </font>
          </property>
          <property name="text">
-          <string>缺勤信息如下：</string>
+          <string>信息如下：</string>
          </property>
         </widget>
        </item>
@@ -227,9 +227,16 @@
         </spacer>
        </item>
        <item>
+        <widget class="QPushButton" name="courseButton">
+         <property name="text">
+          <string>查询选课</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QPushButton" name="checkButton">
          <property name="text">
-          <string>查询</string>
+          <string>查询缺勤</string>
          </property>
         </widget>
        </item>

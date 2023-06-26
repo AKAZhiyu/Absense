@@ -4,6 +4,9 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include "student.h"
+#include "teacher.h"
+#include"tea.h"
+#include"stud.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -20,6 +23,11 @@ MainWindow::MainWindow(QWidget *parent)
         this->close();
     }
 }
+void MainWindow::showSelf()
+{
+    this->show();
+}
+
 
 MainWindow::~MainWindow()
 {
@@ -63,6 +71,7 @@ void MainWindow::validateLogin_Student()
                 Stud *s = new Stud(id, name, gender, password, age, _class, major);
                 this->hide();
                 Student* student = new Student(s);
+                connect(student, &Student::notifyParent, this, &MainWindow::showSelf);
                 student->show();
             } else {
                 QMessageBox::warning(this, "Login", "密码错误");
@@ -74,5 +83,49 @@ void MainWindow::validateLogin_Student()
         QMessageBox::warning(this, "DbsError", "数据库查询失败");
     }
 
+}
+
+void MainWindow::validateLogin_Teacher()
+{
+    QString input_name = ui->lineEdit_usrname->text();
+    QString input_password = ui->lineEdit_passwd->text();
+
+    QSqlQuery query;
+    query.prepare("SELECT * FROM teachers WHERE id = :id");
+    query.bindValue(":id", input_name.toInt());
+
+    if (query.exec()) {
+        if (query.next()) {
+            QString password = query.value(3).toString();
+            if (password == input_password) {
+                QMessageBox::information(this, "Login", "登录成功");
+                unsigned id = query.value(0).toUInt();
+                std::string name = query.value(1).toString().toStdString();
+                std::string gender = query.value(2).toString().toStdString();
+                std::string password = query.value(3).toString().toStdString();
+                std::string college = query.value(4).toString().toStdString();
+                std::string tittle = query.value(5).toString().toStdString();
+                unsigned age = query.value(6).toUInt();
+                Tea *t = new Tea(id, name, gender, password, age, tittle, college);
+                this->hide();
+                Teacher* teacher = new Teacher(t);
+                connect(teacher, &Teacher::notifyParent, this, &MainWindow::showSelf);
+                teacher->show();
+            } else {
+                QMessageBox::warning(this, "Login", "密码错误");
+            }
+        } else {
+            QMessageBox::warning(this, "Login", "用户不存在");
+        }
+    } else {
+        QMessageBox::warning(this, "DbsError", "数据库查询失败");
+    }
+
+}
+
+
+void MainWindow::on_pushButton_clicked()
+{
+    validateLogin_Teacher();
 }
 

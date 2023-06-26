@@ -7,20 +7,25 @@ Student::Student(Stud* s, QWidget *parent) :
     s(s)
 {
     ui->setupUi(this);
+
     db = QSqlDatabase::addDatabase("QMYSQL");
     db.setHostName("localhost");
     db.setDatabaseName("SchoolDB");
     db.setUserName("root");
     db.setPassword("zzx20030628");
+
+    m = new QSqlTableModel;
+
+
+
     if (!db.open()) {
         // 错误处理
         QMessageBox::warning(this, "Login", "数据库连接错误！");
         this->close();
     }
-    m = new QSqlTableModel;
-    m->setTable("DetailedAbsences");
 
-    ui->tableView->setModel(m);
+
+
     QString welcome = "你好，" + QString::fromStdString(s->getName()) + "同学";
     ui->label_welcome->setText(welcome);
     ui->label_name->setText(QString::fromStdString(s->getName()));
@@ -39,12 +44,32 @@ Student::~Student()
 
 void Student::on_exitButton_clicked()
 {
+
     this->close();
+    emit notifyParent();
+
 }
 
 
 void Student::on_checkButton_clicked()
 {
+
+
+    m->setTable("DetailedAbsences");
+    m->setFilter("student_id = " + QString::number(s->getId()));
+    ui->tableView->setModel(m);
     m->select();
+
+}
+
+
+void Student::on_courseButton_clicked()
+{
+
+    m->setTable("StudentCourseView");
+    m->setFilter("student_id = " + QString::number(s->getId()));
+    ui->tableView->setModel(m);
+    m->select();
+
 }
 
