@@ -1,4 +1,4 @@
-QT       += core gui sql
+QT       += core gui sql widgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -11,6 +11,7 @@ CONFIG += c++17
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
+    pass.cpp \
     stud.cpp \
     student.cpp \
     tea.cpp \
@@ -18,6 +19,7 @@ SOURCES += \
 
 HEADERS += \
     mainwindow.h \
+    pass.h \
     person.h \
     stud.h \
     student.h \
@@ -26,6 +28,7 @@ HEADERS += \
 
 FORMS += \
     mainwindow.ui \
+    pass.ui \
     student.ui \
     teacher.ui
 
@@ -37,3 +40,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 DISTFILES += \
     att_SYS.sql \
     ujs.png
+
+RESOURCES += \
+    res.qrc

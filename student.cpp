@@ -1,6 +1,7 @@
 #include "student.h"
 #include "ui_student.h"
 #include <QMessageBox>
+#include"pass.h"
 Student::Student(Stud* s, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Student),
@@ -26,7 +27,7 @@ Student::Student(Stud* s, QWidget *parent) :
 
 
 
-    QString welcome = "你好，" + QString::fromStdString(s->getName()) + "同学";
+    QString welcome = "您好，" + QString::fromStdString(s->getName()) + "同学";
     ui->label_welcome->setText(welcome);
     ui->label_name->setText(QString::fromStdString(s->getName()));
     ui->label_gender->setText(QString::fromStdString(s->getGender()));
@@ -71,5 +72,12 @@ void Student::on_courseButton_clicked()
     ui->tableView->setModel(m);
     m->select();
 
+}
+
+
+void Student::on_pushButton_clicked()
+{
+    pass* passs = new pass(s);
+    passs->show();
 }
 

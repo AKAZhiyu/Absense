@@ -27,6 +27,8 @@ private slots:
 
     void on_courseButton_clicked();
 
+    void on_pushButton_clicked();
+
 signals:
     void notifyParent();
 

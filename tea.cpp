@@ -31,3 +31,7 @@ const std::string& Tea::getFaculty() const { return faculty; }
 void Tea::setPosition(const std::string& newPosition) { position = newPosition; }
 
 void Tea::setFaculty(const std::string &newFaculty) {faculty = newFaculty; }
+
+std::string Tea::getTable() const {
+    return std::string("Teachers");
+}

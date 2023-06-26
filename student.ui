@@ -14,50 +14,50 @@
    <string>学生缺勤查询系统</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>ujs.png</normaloff>ujs.png</iconset>
+   <iconset resource="res.qrc">
+    <normaloff>:/images/ujs.jpg</normaloff>:/images/ujs.jpg</iconset>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_3">
+  <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
-    <layout class="QVBoxLayout" name="verticalLayout_2">
+    <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout">
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_3">
-         <item>
-          <widget class="QLabel" name="label_welcome">
-           <property name="font">
-            <font>
-             <pointsize>22</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>您好，XXXX同学</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QPushButton" name="exitButton">
-           <property name="text">
-            <string>Log out</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
+        <widget class="QLabel" name="label_welcome">
+         <property name="font">
+          <font>
+           <pointsize>22</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>您好，XXXX同学</string>
+         </property>
+        </widget>
        </item>
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="exitButton">
+         <property name="text">
+          <string>Log out</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_5">
        <item>
         <widget class="QLabel" name="label_infoTip">
          <property name="font">
@@ -71,131 +71,138 @@
         </widget>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout">
-         <item>
-          <widget class="QLabel" name="label_3">
-           <property name="font">
-            <font>
-             <pointsize>14</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>学号</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_id">
-           <property name="text">
-            <string>XXXX</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_5">
-           <property name="font">
-            <font>
-             <pointsize>14</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>姓名</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_name">
-           <property name="text">
-            <string>XXXX</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_4">
-           <property name="font">
-            <font>
-             <pointsize>14</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>性别</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_gender">
-           <property name="text">
-            <string>XXXX</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
+        <widget class="QPushButton" name="pushButton">
+         <property name="text">
+          <string>修改密码</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLabel" name="label_3">
+         <property name="font">
+          <font>
+           <pointsize>14</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>学号</string>
+         </property>
+        </widget>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
-         <item>
-          <widget class="QLabel" name="label_6">
-           <property name="font">
-            <font>
-             <pointsize>14</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>专业</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_major">
-           <property name="font">
-            <font>
-             <pointsize>9</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>XXXX</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_7">
-           <property name="font">
-            <font>
-             <pointsize>14</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>班级</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_class">
-           <property name="text">
-            <string>XXXX</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_8">
-           <property name="font">
-            <font>
-             <pointsize>14</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>年龄</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_age">
-           <property name="text">
-            <string>XXXX</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
+        <widget class="QLabel" name="label_id">
+         <property name="text">
+          <string>XXXX</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_5">
+         <property name="font">
+          <font>
+           <pointsize>14</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>姓名</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_name">
+         <property name="text">
+          <string>XXXX</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_4">
+         <property name="font">
+          <font>
+           <pointsize>14</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>性别</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_gender">
+         <property name="text">
+          <string>XXXX</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QLabel" name="label_6">
+         <property name="font">
+          <font>
+           <pointsize>14</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>专业</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_major">
+         <property name="font">
+          <font>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>XXXX</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_7">
+         <property name="font">
+          <font>
+           <pointsize>14</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>班级</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_class">
+         <property name="text">
+          <string>XXXX</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_8">
+         <property name="font">
+          <font>
+           <pointsize>14</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>年龄</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_age">
+         <property name="text">
+          <string>XXXX</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
@@ -249,6 +256,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
  <connections/>
 </ui>

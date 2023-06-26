@@ -26,6 +26,8 @@ public:
 
     void setClass(const std::string& new_class);
     void setMajor(const std::string& new_major);
+
+    virtual std::string getTable() const;
 };
 
 #endif // !STUD_H

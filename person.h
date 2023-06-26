@@ -45,6 +45,8 @@ public:
         return *this;
     }
 
+    virtual std::string getTable() const = 0;
+
     // Destructor
     virtual ~Person() noexcept {}
 

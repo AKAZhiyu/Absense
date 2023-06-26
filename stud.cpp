@@ -36,3 +36,7 @@ void Stud::setClass(const std::string& new_class) {
 void Stud::setMajor(const std::string &new_major) {
     major = new_major;
 }
+
+std::string Stud::getTable() const {
+    return std::string("Students");
+}

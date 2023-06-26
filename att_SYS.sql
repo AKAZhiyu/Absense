@@ -1,5 +1,5 @@
-CREATE DATABASE SchoolDB;
-USE SchoolDB;
+CREATE DATABASE tt;
+USE tt;
 
 CREATE TABLE Students(
     id INT NOT NULL AUTO_INCREMENT,
@@ -106,6 +106,9 @@ CREATE TABLE Absences (
     FOREIGN KEY (student_id, course_id) REFERENCES CourseSelection(student_id, course_id),
     PRIMARY KEY (absence_id)
 );
+ALTER TABLE Absences
+CHANGE type type ENUM('Sick', 'Leave', 'Unexcused', 'Late', 'Early Leave');
+
 
 INSERT INTO Absences (student_id, course_id, absence_date, type) VALUES
 (1, 1, '2023-06-25', 'Sick'),
@@ -118,9 +121,15 @@ INSERT INTO Absences (student_id, course_id, absence_date, type) VALUES
 
 
 CREATE VIEW DetailedAbsences AS
-SELECT  a.student_id, c.id, c.course_name, a.absence_date, a.type
+SELECT  a.student_id,
+        c.id AS course_id,
+        c.course_name,
+        a.absence_date,
+        t.class_time,
+        a.type
 FROM Absences AS a
-JOIN Courses AS c ON a.course_id = c.id;
+JOIN Courses AS c ON a.course_id = c.id
+JOIN teaching AS t ON t.course_id = c.id;
 
 CREATE VIEW StudentCourseView AS
 SELECT s.id AS student_id, s.name AS student_name, s.major AS student_major,
@@ -130,3 +139,16 @@ JOIN CourseSelection AS cs ON s.id = cs.student_id
 JOIN Courses AS c ON cs.course_id = c.id;
 
 
+update students set password = "password" where id = 10001;
+
+INSERT INTO Absences (student_id, course_id, absence_date, type) VALUES
+(10001, 1, '2023-06-01', 'Unexcused'),
+(10001, 2, '2023-06-02', 'Unexcused'),
+(10001, 3, '2023-06-03', 'Sick'),
+(10001, 4, '2023-06-20', 'Sick');
+
+INSERT INTO Absences (student_id, course_id, absence_date, type) VALUES
+(10001, 2, '2023-06-11', 'Late'),
+(10001, 2, '2023-06-12', 'Early Leave'),
+(10001, 2, '2023-06-13', 'Late'),
+(10001, 3, '2023-06-10', 'Late');

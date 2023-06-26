@@ -29,6 +29,7 @@ public:
 
     void setFaculty(const std::string& newFaculty);
 
+    virtual std::string getTable() const;
 };
 
 #endif // !TEACHER_H
