@@ -230,6 +230,14 @@ bool Teacher::studentIdIsDuplicate(const QString &id)
     }
 }
 
+bool Teacher::validateCanBeNumber(const QString &id)
+{
+    QString str = id;
+    bool ok;
+    str.toDouble(&ok);
+    return ok;
+}
+
 void Teacher::on_searchButton_clicked()
 {
     if (ui->searchBox->currentIndex() == 0) {
@@ -275,9 +283,10 @@ void Teacher::on_addStudentButton_clicked()
     QString id = ui->idAddEdit->text();
     if (studentIdIsDuplicate(id)) {
         QMessageBox::warning(this, "Add", "学生学号重复！");
+    } else if (!validateCanBeNumber(id)) {
+        QMessageBox::warning(this, "Add", "学生学号非法！");
     } else {
         QString name = ui->nameAddEdit->text();  // 从界面获取学生姓名
-    //    QString gender = ui->genderAddEdit->text();  // 从界面获取学生性别
         QString gender = ui->genderBox->currentText();
         QString password = "123";  // 从界面获取学生密码
         QString major = ui->majorAddEdit->text();  // 从界面获取学生专业
@@ -320,10 +329,11 @@ void Teacher::on_AbsenseButton_clicked()
         query.bindValue(":type", type);
 
     } else if (ui->absenseBox->currentIndex() == 1) { //删除
-        query.prepare("DELETE FROM Absences WHERE student_id = :studentId AND course_id = :courseId AND absence_date = :absenseDate");
+        query.prepare("DELETE FROM Absences WHERE student_id = :studentId AND course_id = :courseId AND absence_date = :absenseDate AND type = :type");
         query.bindValue(":studentId", studentId);
         query.bindValue(":courseId", courseId);
         query.bindValue(":absenseDate", absenseDate);
+        query.bindValue(":type", type);
 
     } else if (ui->absenseBox->currentIndex() == 2) { //修改
         query.prepare("UPDATE Absences SET type = :typeNew WHERE student_id = :studentId AND course_id = :courseId AND absence_date = :absenseDate");
@@ -336,7 +346,7 @@ void Teacher::on_AbsenseButton_clicked()
     if (query.exec()) {
         QMessageBox::information(this, "Absense", "操作成功！");
     } else {
-        QMessageBox::warning(this, "Absense", "Database操作失败！" );
+        QMessageBox::warning(this, "Absense", "输入非法，Database操作失败！" );
     }
 }
 

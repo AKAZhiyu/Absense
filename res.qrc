@@ -2,5 +2,7 @@
     <qresource prefix="/images">
         <file>ujs.png</file>
         <file>ujs.jpg</file>
+        <file>ujs_big.png</file>
     </qresource>
+    <qresource prefix="/"/>
 </RCC>

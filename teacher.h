@@ -59,6 +59,8 @@ private:
     void searchAbsenceByName(const QString& name);
 
     bool studentIdIsDuplicate(const QString &id);
+
+    bool validateCanBeNumber(const QString& id);
 };
 
 #endif // TEACHER_H
